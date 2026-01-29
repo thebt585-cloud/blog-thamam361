@@ -1,97 +1,122 @@
-# blog-thamam361
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Thamam361 | Blog & Produk Digital</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== BRANDING ===== */
 :root{
-  --brand:#0ea5e9;      /* GANTI WARNA BRAND */
+  --brand:#0ea5e9;
   --brand2:#22c55e;
 }
 
-/* ===== RESET ===== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
-body{background:#f4f6fb;color:#333;padding-bottom:90px}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins,sans-serif;
+}
 
-/* ===== HEADER ===== */
+body{
+  background:#f4f6fb;
+  color:#333;
+  padding-bottom:110px;
+  font-size:14px;
+}
+
+/* HEADER */
 header{
   background:linear-gradient(135deg,var(--brand),var(--brand2));
   color:#fff;
-  padding:20px;
+  padding:20px 15px;
   text-align:center;
-  border-radius:0 0 25px 25px;
+  border-radius:0 0 22px 22px;
 }
 header img{
-  width:70px;
-  height:70px;
+  width:65px;
+  height:65px;
   border-radius:50%;
   border:3px solid #fff;
   object-fit:cover;
 }
+header h2{font-size:20px;margin-top:8px}
+header p{font-size:13px;opacity:.9}
 
-/* ===== LAYOUT ===== */
-.container{max-width:900px;margin:auto;padding:15px}
-.grid{display:grid;gap:15px}
+/* LAYOUT */
+.container{
+  max-width:100%;
+  padding:12px;
+}
 
-/* ===== CARD ===== */
+/* GRID MOBILE FIRST */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+/* CARD */
 .card{
   background:#fff;
-  padding:15px;
+  padding:14px;
   border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 .card img{
   width:100%;
-  height:160px;
+  height:150px;
   object-fit:cover;
   border-radius:12px;
 }
-.price{color:var(--brand);font-weight:700}
+.card h4{margin-top:8px;font-size:15px}
+.price{
+  color:var(--brand);
+  font-weight:700;
+  margin:4px 0;
+}
 
-/* ===== FORM & BUTTON ===== */
+/* FORM & BUTTON */
 button{
   background:var(--brand);
   color:#fff;
   border:none;
-  padding:10px;
-  border-radius:12px;
+  padding:12px;
+  border-radius:14px;
   width:100%;
   margin-top:8px;
+  font-size:14px;
   font-weight:600;
 }
 input,select{
   width:100%;
-  padding:10px;
-  border-radius:10px;
+  padding:12px;
+  border-radius:12px;
   border:1px solid #ccc;
   margin-bottom:10px;
+  font-size:14px;
 }
 
-/* ===== FLOATING BUTTON ===== */
+/* FLOATING BUTTON */
 .fab{
   position:fixed;
-  bottom:85px;
-  right:15px;
+  bottom:95px;
+  right:14px;
   background:var(--brand);
-  width:55px;
-  height:55px;
+  width:52px;
+  height:52px;
   border-radius:50%;
   color:#fff;
-  font-size:26px;
+  font-size:24px;
   display:flex;
   align-items:center;
   justify-content:center;
   box-shadow:0 8px 20px rgba(0,0,0,.25);
   z-index:999;
-  cursor:pointer;
 }
 
-/* ===== CONTACT BAR ===== */
+/* CONTACT BAR */
 .contact-bar{
   position:fixed;
   bottom:0;
@@ -100,29 +125,31 @@ input,select{
   background:linear-gradient(135deg,var(--brand),var(--brand2));
   display:flex;
   justify-content:space-around;
-  padding:10px 5px;
+  padding:8px 4px;
   z-index:998;
 }
 .contact-bar a{
   color:#fff;
-  font-size:12px;
+  font-size:11px;
   text-decoration:none;
   background:rgba(255,255,255,.2);
-  padding:8px 12px;
+  padding:7px 10px;
   border-radius:20px;
   font-weight:600;
 }
 
-/* ===== HIDDEN ===== */
-.hidden{display:none}
+/* TABLET & DESKTOP */
+@media (min-width:768px){
+  body{font-size:15px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .container{max-width:900px;margin:auto}
+}
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
-  <!-- GANTI LOGO -->
   <img src="https://i.imgur.com/7k12EPD.png">
   <h2>Thamam361</h2>
   <p>Blog • Produk Digital • Edukasi</p>
@@ -137,7 +164,7 @@ input,select{
 <h3>🛒 Keranjang</h3>
 <div id="cart" class="card">Keranjang kosong</div>
 
-<div id="checkout" class="card hidden">
+<div id="checkout" class="card" style="display:none">
   <h3>🧾 Form Order</h3>
   <input id="nama" placeholder="Nama">
   <input id="wa" placeholder="Nomor WhatsApp">
@@ -151,20 +178,17 @@ input,select{
 
 </div>
 
-<!-- ===== FLOATING BUTTON ===== -->
-<div class="fab" onclick="scrollTo({top:0,behavior:'smooth'})">⬆️</div>
+<div class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</div>
 
-<!-- ===== CONTACT BAR ===== -->
 <div class="contact-bar">
-  <a href="https://wa.me/62895367231635" target="_blank">📞 WA</a>
-  <a href="https://instagram.com/thamam361" target="_blank">📸 IG</a>
-  <a href="https://tiktok.com/@thamam361" target="_blank">🎵 TikTok</a>
-  <a href="https://youtube.com/@thamam361" target="_blank">▶️ YT</a>
+  <a href="https://wa.me/6285123622237">📞 WA</a>
+  <a href="https://instagram.com/thamam361">📸 IG</a>
+  <a href="https://tiktok.com/@thamam361">🎵 TikTok</a>
+  <a href="https://youtube.com/@thamam361">▶️ YT</a>
 </div>
 
 <script>
-/* ===== DATA PRODUK ===== */
-const adminWA="62895367231635"; // NOMOR ADMIN
+const adminWA="6285123622237";
 
 const products=[
   {n:"Modul Coding Pemula",p:25000,img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085"},
@@ -175,7 +199,6 @@ const products=[
 
 let cart=[];
 
-/* ===== RENDER PRODUK ===== */
 function renderProduk(){
   produk.innerHTML="";
   products.forEach((x,i)=>{
@@ -190,7 +213,6 @@ function renderProduk(){
 }
 renderProduk();
 
-/* ===== CART ===== */
 function add(i){
   cart.push(products[i]);
   renderCart();
@@ -199,7 +221,7 @@ function add(i){
 function renderCart(){
   if(cart.length===0){
     cart.innerHTML="Keranjang kosong";
-    checkout.classList.add("hidden");
+    checkout.style.display="none";
     return;
   }
   let total=0;
@@ -209,29 +231,24 @@ function renderCart(){
     cart.innerHTML+=`${x.n} - Rp ${x.p.toLocaleString()}<br>`;
   });
   cart.innerHTML+=`<hr><b>Total: Rp ${total.toLocaleString()}</b>`;
-  checkout.classList.remove("hidden");
+  checkout.style.display="block";
 }
 
-/* ===== KIRIM ORDER KE WHATSAPP ===== */
 function kirimWA(){
-  if(!nama.value || !wa.value){
+  if(!nama.value||!wa.value){
     alert("Lengkapi data!");
     return;
   }
   let pesan=`Halo Admin 👋%0A
 Nama: ${nama.value}%0A
 WA: ${wa.value}%0A
-Pembayaran: ${pay.value}%0A
-Produk:%0A`;
-
+Pembayaran: ${pay.value}%0AProduk:%0A`;
   let total=0;
   cart.forEach(p=>{
     pesan+=`- ${p.n} (Rp ${p.p.toLocaleString()})%0A`;
     total+=p.p;
   });
-
   pesan+=`%0ATotal: Rp ${total.toLocaleString()}`;
-
   window.open(`https://wa.me/${adminWA}?text=${pesan}`,"_blank");
 }
 </script>
